@@ -1,17 +1,17 @@
 # Threat Intel IP Scanner
 
-Petit utilitaire CLI en Python pour vérifier rapidement la réputation d'une adresse IP. 
+A lightweight Python CLI utility to quickly check the reputation of a suspicious IP address.
 
-À l'origine, j'ai codé ce script pour automatiser l'analyse des IP qui frappaient mon honeypot local (que je ne pouvais pas exposer proprement à cause du CGNAT de mon routeur). Le script tape sur l'API d'AbuseIPDB et parse la réponse JSON pour extraire uniquement la data tactique, directement dans le terminal.
+I originally built this script to automate the analysis of IPs hitting my local honeypot (which I couldn't expose cleanly due to my router's CGNAT). The tool queries the AbuseIPDB API and parses the JSON response to extract only tactical data directly into the terminal.
 
-## Stack 
-- **Python 3** (librairie `requests`)
-- **uv** pour la gestion de l'environnement virtuel et des dépendances
-- **python-dotenv** pour la gestion sécurisée de la clé API
+## Stack
+- **Python 3** (`requests` library)
+- **uv** for lightning-fast virtual environment and dependency management
+- **python-dotenv** for secure API key management
 
 ## Setup
 
-**1. Récupérer le projet**
+**1. Clone the repository**
 ```bash
 git clone [https://github.com/snisharahamad/Threat-Intel-Analyzer.git](https://github.com/snisharahamad/Threat-Intel-Analyzer.git)
 cd Threat-Intel-Analyzer
@@ -19,14 +19,14 @@ uv sync
 ```
 
 **2. Configuration**
-Créer un fichier `.env` à la racine du projet pour y glisser la clé API AbuseIPDB. Le fichier est ignoré par Git via le `.gitignore` pour éviter toute fuite.
+Create a `.env` file at the root of the project to store your AbuseIPDB API key. This file is ignored by Git via the `.gitignore` to prevent secret leaks.
 ```text
-API_KEY="ta_cle_api_ici"
+API_KEY="your_api_key_here"
 ```
 
-## Utilisation
+## Usage
 
-Il suffit de passer l'IP suspecte en argument :
+Simply pass the suspicious IP as an argument:
 ```bash
 uv run scanner.py 118.25.6.39
 ```
